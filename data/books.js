@@ -4433,15 +4433,7 @@ const books = [
         "authors": ["Rick Umali"],
         "categories": []
     },
-    {
-        "title": "Understanding SPAs",
-        "isbn": "1617292435",
-        "pageCount": 0,
-        "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/scott2.jpg",
-        "status": "MEAP",
-        "authors": ["Emmit A. Scott", "Jr."],
-        "categories": []
-    },
+    
 ];
 
 
