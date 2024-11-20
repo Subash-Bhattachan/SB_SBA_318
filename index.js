@@ -68,7 +68,7 @@ app.post('/', function(req, res) {
         pageCount
     };
 
-    // Set up the options for the HTTP request
+    // Setting up the options for the HTTP request
     const options = {
         hostname: 'localhost',
         port: 3000,
@@ -80,11 +80,11 @@ app.post('/', function(req, res) {
         }
     };
 
-    // Make the HTTP request to the API
+    // Making the HTTP request to the API
     const request = http.request(options, (response) => {
         let responseData = '';
 
-        // Collect data from the response
+        // Collecting data from the response
         response.on('data', (chunk) => {
             responseData += chunk;
         });
@@ -95,12 +95,12 @@ app.post('/', function(req, res) {
         });
     });
 
-    // Handle errors
+    // Handling errors
     request.on('error', (e) => {
         res.status(500).send(`Error: ${e.message}`);
     });
 
-    // Write the data to the request and end it
+    // Writing the data to the request and end it
     request.write(JSON.stringify(data));
     request.end();
 });
@@ -109,10 +109,9 @@ app.post('/', function(req, res) {
 // app.post('/', function(req, res) {
 //     const { title, isbn, pageCount, publishedDate, thumbnailUrl, shortDescription, longDescription, status, authors, categories } = req.body;
     
-//     // You can log or process the data here before sending it to your API
 //     //console.log(req.body);
   
-//     // If you're sending this data to an external API
+//     // sending this data to an external API
 //     const axios = require('axios');
 //     axios.post('http://localhost:3000/api/v1/books', req.body)
 //       .then(response => {
