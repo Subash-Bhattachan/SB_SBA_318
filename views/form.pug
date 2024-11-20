@@ -1,0 +1,53 @@
+html 
+    head 
+        title Form Data 
+        link(rel='stylesheet', href='/style.css')
+
+        
+        body 
+        //a(href="/home") Get a free image!
+        h3 Please Enter the Details of the book you want to add to the existing API! 
+        
+        div
+        form(action="/", method="POST")
+            label title 
+            input(type="text", name="title", placeholder="Enter Title")
+            br
+            br
+            label isbn 
+            input(type="number", name="isbn", placeholder="Enter ISBN")
+            br
+            br
+            label pageCount 
+            input(type="number", name="pageCount", placeholder="Enter Page Count")
+            br
+            br
+            label publishedDate 
+            input(type="date", name="publishedDate", placeholder="Enter Published Date")
+            br
+            br
+            label thumbnailUrl 
+            input(type="text", name="thumbnailUrl", placeholder="Enter URL")
+            br
+            br
+            label shortDescription 
+            input(type="text", name="shortDescription", placeholder="Enter Short Description")
+            br
+            br
+            label longDescription 
+            input(type="text", name="longDescription", placeholder="Enter Long Description")
+            br
+            br
+            label status 
+            input(type="text", name="status", placeholder="Enter Status")
+            br
+            br
+            label authors 
+            input(type="text", name="authors", placeholder="Enter Author(s)")
+            br
+            br
+            label Categories 
+            input(type="text", name="categories", placeholder="Enter Categories", )
+            br
+            br
+            input(type="submit" value="Submit")
