@@ -1,8 +1,9 @@
 const authors = [
     {
         id: 1,
-        name: "Satnam Alag",
-        books: [ "Unlocking Android: A Developer's Guide" ]
+        name: "W. Frank Ableson",
+        books: [ "Unlocking Android: A Developer's Guide" ],
+        isbn: "1933988673",
     },
 
     {

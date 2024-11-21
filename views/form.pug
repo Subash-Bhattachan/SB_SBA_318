@@ -6,9 +6,10 @@ html
         
         body 
         //a(href="/home") Get a free image!
-        h3 Please Enter the Details of the book you want to add to the existing API! 
+        #header
+        h3 Enter the details of the book to add to the existing API! 
         
-        div
+        #container
         form(action="/", method="POST")
             label title 
             input(type="text", name="title", placeholder="Enter Title")
@@ -51,3 +52,5 @@ html
             br
             br
             input(type="submit" value="Submit")
+        
+        include ./footer.pug

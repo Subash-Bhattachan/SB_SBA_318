@@ -50,7 +50,7 @@ app.post('/', function(req, res) {
     res.send("Success! POST method is working here! The entered name is: "+req.body.title+" and the email is: "+req.body.isbn);
 });
     
-
+// trying to extract the data from the form andf posting it to the existing API, facing some problems.
 // POST the data from the form to the external API
 app.post('/', function(req, res) {
     // Capture form data from req.body
@@ -76,7 +76,7 @@ app.post('/', function(req, res) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Content-Length': Buffer.byteLength(JSON.stringify(data)) // Length of the data
+            'Content-Length': Buffer.byteLength(JSON.stringify(data)) 
         }
     };
 
@@ -105,7 +105,7 @@ app.post('/', function(req, res) {
     request.end();
 });
 
-
+// trying another method
 // app.post('/', function(req, res) {
 //     const { title, isbn, pageCount, publishedDate, thumbnailUrl, shortDescription, longDescription, status, authors, categories } = req.body;
     
