@@ -15,8 +15,8 @@ const error = require("./utilities/error");
 
 // custom middlewares
 // Parsing middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // app.use(express.json());
 //app.use(express.urlencoded({ extended: true }));
@@ -41,96 +41,25 @@ app.get('/', function(req, res) {
 });
 
 
-// this helps post the data from the form to the API
-// app.post('/', function(req, res) {
-//     res.send("Sucess! The data is successfully added to the API. " + req.body.title)
-// })
-
+// to post the data from the form to the API
 app.post('/', function(req, res) {
-    res.send("Success! POST method is working here! The entered name is: "+req.body.title+" and the email is: "+req.body.isbn);
-});
+    const { title, isbn, pageCount, publishedDate, thumbnailUrl, shortDescription, longDescription, status, authors, categories } = req.body;
     
-// trying to extract the data from the form andf posting it to the existing API, facing some problems.
-// POST the data from the form to the external API
-app.post('/', function(req, res) {
-    // Capture form data from req.body
-    //console.log(req.body);
-    const { title, isbn, authors, categories, status, thumbnailUrl, pageCount } = req.body;
-    
-    // Create the data object to send to the external API
-    const data = {
-        title,
-        isbn,
-        authors: authors.split(','), 
-        categories: categories.split(','), 
-        status,
-        thumbnailUrl,
-        pageCount
-    };
-
-    // Setting up the options for the HTTP request
-    const options = {
-        hostname: 'localhost',
-        port: 3000,
-        path: 'api/v1/books', 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': Buffer.byteLength(JSON.stringify(data)) 
-        }
-    };
-
-    // Making the HTTP request to the API
-    const request = http.request(options, (response) => {
-        let responseData = '';
-
-        // Collecting data from the response
-        response.on('data', (chunk) => {
-            responseData += chunk;
-        });
-
-        // End of the response
-        response.on('end', () => {
-            res.send('Success! The book data was sent to the API.');
-        });
-    });
-
-    // Handling errors
-    request.on('error', (e) => {
-        res.status(500).send(`Error: ${e.message}`);
-    });
-
-    // Writing the data to the request and end it
-    request.write(JSON.stringify(data));
-    request.end();
-});
-
-// trying another method
-// app.post('/', function(req, res) {
-//     const { title, isbn, pageCount, publishedDate, thumbnailUrl, shortDescription, longDescription, status, authors, categories } = req.body;
-    
-//     //console.log(req.body);
+    console.log(req.body);
   
-//     // sending this data to an external API
-//     const axios = require('axios');
-//     axios.post('http://localhost:3000/api/v1/books', req.body)
-//       .then(response => {
-//         res.send("Success! Data has been sent to the API.");
-//       })
-//       .catch(error => {
-//         res.status(500).send("Failed to send data to API.");
-//       });
-//   });
+    // sending this data to an external API
+    const axios = require('axios');
+    axios.post('http://localhost:3000/api/v1/books', req.body)
+      .then(response => {
+        res.send("Success! Data has been sent to the API. Please visit the link 'http://localhost:3000/api/v1/books' to see the added book to the API>");
+      })
+      .catch(error => {
+        res.status(500).send("Failed to send data to API.");
+      });
+  });
   
 
 
-
-
-
-
-
-
-    
 
 app.use((req, res, next) => {
     next(error(404, "Resource Not Found"));
