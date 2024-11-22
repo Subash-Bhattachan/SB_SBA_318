@@ -19,8 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(addTimestamp); // this shows the timestamp on the terminal while posting
 
-// app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
 
 // Use the Routes
 app.use("/api/v1", books);
@@ -58,8 +56,6 @@ app.post('/', function(req, res) {
       });
   });
   
-
-
 
 app.use((req, res, next) => {
     next(error(404, "Resource Not Found"));
