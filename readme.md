@@ -25,6 +25,9 @@ This assessment measures your understanding of Node and Express and your capabil
 * In package.json, in "scripts", add "start": nodemon index.js
 * npm i --save-dev nodemon (to install nodemon dependency package)
 * npm install express (to install Express)
+* npm install --save pug (to install the engine to create different views via templating, Pug compiles and renders in one step)
+* npm install body-parser (to parse the incoming bodies and avail them as objects in the req.body property)
+* npm install axios (to simplify the process of sending requests and handling responses)
 * npm start OR nodemon index.js (to start the browser)
 
 

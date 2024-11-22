@@ -67,15 +67,6 @@ const books = [
         "categories": []
     },
     {
-        "title": "Practical Probabilistic Programming",
-        "isbn": "1617292338",
-        "pageCount": 0,
-        "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/pfeffer.jpg",
-        "status": "MEAP",
-        "authors": ["Avi Pfeffer"],
-        "categories": []
-    },
-    {
         "title": "Unity in Action",
         "isbn": "161729232X",
         "pageCount": 0,

@@ -13,7 +13,7 @@ router.get("/authors", function(req, res) {
 
 
 
-
+// to get the name of the authors based on the title of the book
 router.get("/authors/:title", function(req, res) {
     const { title } = req.params;
 
@@ -24,7 +24,7 @@ router.get("/authors/:title", function(req, res) {
         return res.status(404).send({ message: "Book(s) not found." });
     }
     const authorsForBook = book.authors.map(authorName => {
-        return authors.find(a => a.name.toLocaleLowerCase() === authorName.toLocaleLowerCase());
+        return authors.find(a => a.name.toLowerCase() === authorName.toLowerCase());
     }).filter(author => author !== undefined);  // this filters out any undefined if no author is found)
 
     if (authorsForBook.length === 0) {

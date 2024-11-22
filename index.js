@@ -10,14 +10,14 @@ const books = require("./routes/books");
 const authors = require("./routes/authors");
 
 const reviews = require("./routes/reviews");
-const { error, addTimestamp} = require("./utilities/error"); // 2 custom middleware
+const { error, addTimestamp} = require("./utilities/middlewares"); // 2 custom middleware
 
 
 // custom middlewares
 // Parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(addTimestamp);
+app.use(addTimestamp); // this shows the timestamp on the terminal while posting
 
 // app.use(express.json());
 //app.use(express.urlencoded({ extended: true }));
@@ -30,7 +30,6 @@ app.use("/api/v3", reviews);
 
 app.set('view engine', 'pug'); // pug engine is being used for templating
 app.set('views', './views');
-//app.set('views', path.join(__dirname, 'views'));
 
 
 // using middleware functions
