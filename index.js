@@ -10,13 +10,14 @@ const books = require("./routes/books");
 const authors = require("./routes/authors");
 
 const reviews = require("./routes/reviews");
-const error = require("./utilities/error");
+const { error, addTimestamp} = require("./utilities/error"); // 2 custom middleware
 
 
 // custom middlewares
 // Parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(addTimestamp);
 
 // app.use(express.json());
 //app.use(express.urlencoded({ extended: true }));
@@ -29,11 +30,11 @@ app.use("/api/v3", reviews);
 
 app.set('view engine', 'pug'); // pug engine is being used for templating
 app.set('views', './views');
-//app.set('views', path.join(__dirname, 'views')); // Ensure path is correct
+//app.set('views', path.join(__dirname, 'views'));
+
 
 // using middleware functions
 // to get the data from the form via POST method
-
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {

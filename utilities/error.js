@@ -4,4 +4,15 @@ function error(status, message) {
     return err;
 }
 
-module.exports = error;
+
+const addTimestamp = (req, res, next) => {
+    if (req.method === "POST" && req.url === "/api/v1/books") {
+        req.body.timestamp = new Date().toISOString();
+        console.log(`Timestamp: ${req.body.timestamp}`);
+    }
+    next();
+
+}
+
+
+module.exports = { error, addTimestamp };
